@@ -1,0 +1,86 @@
+{
+	"id": "sample-form",
+	"questions": [
+		{
+			"id": "q1",
+			"title": "Short Text Question",
+			"type": "text",
+			"required": true,
+			"hidden": false
+		},
+		{
+			"id": "q2",
+			"title": "Long Text Question",
+			"type": "paragraph",
+			"required": false,
+			"hidden": false
+		},
+		{
+			"id": "q3",
+			"title": "Phone Number",
+			"type": "phone",
+			"required": true,
+			"hidden": false,
+			"validation": {
+				"regex": "^[+]?[(]?[0-9]{3}[)]?[-\\s.]?[0-9]{3}[-\\s.]?[0-9]{4}$"
+			}
+		},
+		{
+			"id": "q4",
+			"title": "Email Address",
+			"type": "email",
+			"required": true,
+			"hidden": false
+		},
+		{
+			"id": "q5",
+			"title": "Website URL",
+			"type": "url",
+			"required": false,
+			"hidden": false
+		},
+		{
+			"id": "q6",
+			"title": "Number Input",
+			"type": "number",
+			"required": false,
+			"hidden": false,
+			"validation": {
+				"min": 1,
+				"max": 10
+			}
+		},
+		{
+			"id": "q7",
+			"title": "Select an Option",
+			"type": "select",
+			"required": true,
+			"hidden": false,
+			"selectOptions": {
+				"isMulti": false,
+				"options": [
+					{ "value": "option1", "label": "Option 1" },
+					{ "value": "option2", "label": "Option 2" }
+				]
+			}
+		},
+		{
+			"id": "q8",
+			"title": "Select Multiple Interests",
+			"type": "select",
+			"required": true,
+			"hidden": false,
+			"selectOptions": {
+				"isMulti": true,
+				"options": [
+					{ "value": "tech", "label": "Technology" },
+					{ "value": "sports", "label": "Sports" },
+					{ "value": "music", "label": "Music" },
+					{ "value": "travel", "label": "Travel" },
+					{ "value": "reading", "label": "Reading" }
+				]
+			}
+		}
+		
+	]
+}
