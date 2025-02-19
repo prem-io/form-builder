@@ -30,14 +30,20 @@
 			"title": "Email Address",
 			"type": "email",
 			"required": true,
-			"hidden": false
+			"hidden": false,
+			"validation": {
+				"regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+			}
 		},
 		{
 			"id": "q5",
 			"title": "Website URL",
 			"type": "url",
 			"required": false,
-			"hidden": false
+			"hidden": false,
+			"validation": {
+				"regex": "^(http|https)://[^\\s/$.?#].[^\\s]*$"
+			}
 		},
 		{
 			"id": "q6",

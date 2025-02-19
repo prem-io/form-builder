@@ -66,7 +66,7 @@ export const TEXT_TYPE_VALIDATIONS: Record<TextType, string> = {
 	paragraph: '',
 	phone: '^[+]?[(]?[0-9]{3}[)]?[-\\s.]?[0-9]{3}[-\\s.]?[0-9]{4}$',
 	email: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
-	url: '^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$',
+	url: '^(http|https)://[^\\s/$.?#].[^\\s]*$',
 };
 
 export const TYPE_LABELS: Record<string, string> = {
