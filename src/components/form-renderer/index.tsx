@@ -24,13 +24,10 @@ import {
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { submitForm } from '@/lib/mock-api';
-import type { FormSchema, TextType } from '@/types';
+import type { TextType } from '@/types';
 import { getDefaultValue, isTextType } from '@/lib/utils';
 import { Inbox } from 'lucide-react';
-
-interface FormRendererProps {
-	schema: FormSchema;
-}
+import { useFormStore } from '@/store/useFormStore';
 
 const TEXT_TYPE_PLACEHOLDERS: Record<TextType, string> = {
 	text: 'Enter short response',
@@ -40,7 +37,8 @@ const TEXT_TYPE_PLACEHOLDERS: Record<TextType, string> = {
 	url: 'Enter URL',
 };
 
-export function FormRenderer({ schema }: FormRendererProps) {
+export function FormRenderer() {
+	const { schema } = useFormStore();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { toast } = useToast();
 

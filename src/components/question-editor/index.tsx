@@ -20,34 +20,34 @@ import {
 	TYPE_LABELS,
 } from '@/constants';
 import QuestionTypeFactory from './strategies/QuestionTypeFactory';
+import { useFormStore } from '@/store/useFormStore';
 
 interface QuestionEditorProps {
-	question: FormQuestion;
-	onUpdate: (question: FormQuestion) => void;
-	onMove: (id: string, direction: 'up' | 'down') => void;
-	onDuplicate: (question: FormQuestion) => void;
-	onDelete: (id: string) => void;
+	questionId: string;
 }
 
-export function QuestionEditor({
-	question,
-	onUpdate,
-	onMove,
-	onDuplicate,
-	onDelete,
-}: QuestionEditorProps) {
+export function QuestionEditor({ questionId }: QuestionEditorProps) {
+	const { toast } = useToast();
+	const { updateQuestion, deleteQuestion, moveQuestion, duplicateQuestion } =
+		useFormStore();
+
+	const question = useFormStore((state) =>
+		state.schema.questions.find((q) => q.id === questionId)
+	);
+
+	if (!question) return null; // Prevent rendering errors
+
 	const [isExpanded, setIsExpanded] = useState(true);
 	const [localQuestion, setLocalQuestion] = useState(question);
 	const [showDescription, setShowDescription] = useState(
 		false || !!localQuestion.instructions
 	);
-	const { toast } = useToast();
 
 	useEffect(() => {
 		const timeoutId = setTimeout(() => {
 			if (JSON.stringify(question) !== JSON.stringify(localQuestion)) {
 				// TODO: Persist changes to the server
-				onUpdate(localQuestion);
+				updateQuestion(localQuestion);
 				toast({
 					title: 'Auto Saving...',
 					description: 'Changes saved automatically',
@@ -121,7 +121,7 @@ export function QuestionEditor({
 						aria-label='Move up'
 						onClick={(e) => {
 							e.stopPropagation();
-							onMove(question.id, 'up');
+							moveQuestion(question.id, 'up');
 						}}>
 						<ArrowUp className='h-4 w-4' />
 					</Button>
@@ -132,7 +132,7 @@ export function QuestionEditor({
 						aria-label='Move down'
 						onClick={(e) => {
 							e.stopPropagation();
-							onMove(question.id, 'down');
+							moveQuestion(question.id, 'down');
 						}}>
 						<ArrowDown className='h-4 w-4' />
 					</Button>
@@ -143,7 +143,7 @@ export function QuestionEditor({
 						aria-label='Duplicate question'
 						onClick={(e) => {
 							e.stopPropagation();
-							onDuplicate(question);
+							duplicateQuestion(question);
 						}}>
 						<Copy className='h-4 w-4' />
 					</Button>
@@ -152,7 +152,7 @@ export function QuestionEditor({
 						variant='ghost'
 						size='icon'
 						aria-label='Delete question'
-						onClick={() => onDelete(question.id)}>
+						onClick={() => deleteQuestion(question.id)}>
 						<Trash2 className='h-4 w-4' />
 					</Button>
 					<Button
