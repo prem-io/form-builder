@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { Blocks } from 'lucide-react';
-import { QuestionEditor } from './QuestionEditor';
-import type { FormSchema, FormQuestion } from '@/types/form';
 
+import { QuestionEditor } from '@/components/question-editor';
+import type { FormSchema, FormQuestion } from '@/types';
 interface FormBuilderProps {
 	schema: FormSchema;
 	onChange: (schema: FormSchema) => void;

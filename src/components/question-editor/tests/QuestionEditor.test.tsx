@@ -1,7 +1,8 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import { QuestionEditor } from './QuestionEditor';
-import type { FormQuestion } from '@/types/form';
+
+import { QuestionEditor } from '..';
+import type { FormQuestion } from '@/types';
 
 const mockQuestion: FormQuestion = {
 	id: 'q1',
