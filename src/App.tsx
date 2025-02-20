@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FormBuilder } from '@/components/form-builder';
 import { FormRenderer } from '@/components/form-renderer';
 import { Toaster } from '@/components/ui/toaster';
-import { FormQuestion, FormSchema, QuestionType } from '@/types/form';
+import { FormQuestion, FormSchema, QuestionType } from '@/types';
 import { Button } from '@/components/ui/button';
 
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';

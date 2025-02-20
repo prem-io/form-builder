@@ -24,7 +24,7 @@ import {
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { submitForm } from '@/lib/mock-api';
-import type { FormSchema, TextType } from '@/types/form';
+import type { FormSchema, TextType } from '@/types';
 import { getDefaultValue, isTextType } from '@/lib/utils';
 import { Inbox } from 'lucide-react';
 

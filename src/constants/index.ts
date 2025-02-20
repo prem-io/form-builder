@@ -1,4 +1,4 @@
-import { QuestionTypeIcon, QuestionType, TextType } from '@/types/form';
+import { QuestionTypeIcon, QuestionType, TextType } from '@/types';
 import {
 	Text,
 	ScrollText,

@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export type TextType = 'text' | 'paragraph' | 'phone' | 'email' | 'url';
 export type NumberType = 'number' | 'range';
 export type ChoiceType = 'select';
@@ -43,4 +45,14 @@ export interface QuestionTypeIcon {
 	icon: React.ElementType; // Type for a React component (Lucide icons)
 	bg: string; // Tailwind background color class
 	color: string; // Tailwind text color class
+}
+
+export interface QuestionTypeStrategy {
+	render: (
+		question: any,
+		updateField: <K extends keyof FormQuestion>(
+			field: K,
+			value: FormQuestion[K]
+		) => void
+	) => ReactElement | null;
 }
